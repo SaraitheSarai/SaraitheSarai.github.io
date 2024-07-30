@@ -1,0 +1,36 @@
+
+
+h1{
+    color:rgb(89, 32, 40);
+}
+
+body{
+    background-image: linear-gradient(rgb(223, 146, 159),white);
+}
+ul{
+    color:rgb(89, 32, 40);
+}
+li.special{
+    color:red;
+}
+.hi{
+    color:red;
+}
+li em{
+font-size: 15px;
+}
+ h1 + p{
+    text-align: center;
+
+ }
+
+ a:link{
+    color:crimson;
+ }
+ a:link{
+    color:black;
+ }
+
+ a.hover{
+    color:purple;
+ }
