@@ -78,7 +78,7 @@
 <table>
 <td><em>llamas llamas llamas ooooooooh must be llamas ooooooooooh in a llama world</em></td>
 
-<h2><strong><p class="fungamesh2">fun llama games!!</p></strong> </h2>
+<h2><strong>fun llama games!!</strong> </h2>
 
 <div class="resultParas">
     <p class="guesses"></p>
@@ -86,92 +86,95 @@
     <p class="lowOrHi"></p>
   </div>
 
-  <h4 class="guessingh4">guessing game</h4>  
+  <h4>guessing game</h4>  
 
 <p class="guessingp">
   <label for="guessField">Enter a guess: </label>
   <input type="number" id="guessField" class="guessField"/>
   <input type="button" value="Submit guess" class="guessSubmit"/>
   </p>
+  <div> 
     <script>
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
-      
-        const guesses = document.querySelector('.guesses');
-        const lastResult = document.querySelector('.lastResult');
-        const lowOrHi = document.querySelector('.lowOrHi');
-      
-        const guessSubmit = document.querySelector('.guessSubmit');
-        const guessField = document.querySelector('.guessField');
-      
-        let guessCount = 1;
-        let resetButton;
-      
-        function checkGuess() {
-          const userGuess = Number(guessField.value);
-          if (guessCount === 1) {
-            guesses.textContent = 'Previous guesses: ';
+      let randomNumber = Math.floor(Math.random() * 100) + 1;
+    
+      const guesses = document.querySelector('.guesses');
+      const lastResult = document.querySelector('.lastResult');
+      const lowOrHi = document.querySelector('.lowOrHi');
+    
+      const guessSubmit = document.querySelector('.guessSubmit');
+      const guessField = document.querySelector('.guessField');
+    
+      let guessCount = 1;
+      let resetButton;
+    
+      function checkGuess() {
+        const userGuess = Number(guessField.value);
+        if (guessCount === 1) {
+          guesses.textContent = 'Previous guesses: ';
+        }
+        guesses.textContent += `${userGuess} `;
+    
+        if (userGuess === randomNumber) {
+          lastResult.textContent = 'Congratulations! You got it right!';
+          lastResult.style.backgroundColor = 'green';
+          lowOrHi.textContent = '';
+          setGameOver();
+        } else if (guessCount === 10) {
+          lastResult.textContent = '!!!Game Over!!!';
+          lowOrHi.textContent = '';
+          setGameOver();
+        } else {
+          lastResult.textContent = 'Wrong!';
+          lastResult.style.backgroundColor = 'red';
+          if (userGuess < randomNumber) {
+            lowOrHi.textContent = 'Last guess was too low!';
+          } else if (userGuess > randomNumber) {
+            lowOrHi.textContent = 'Last guess was too high!';
           }
-          guesses.textContent += `${userGuess} `;
-      
-          if (userGuess === randomNumber) {
-            lastResult.textContent = 'Congratulations! You got it right!';
-            lastResult.style.backgroundColor = 'green';
-            lowOrHi.textContent = '';
-            setGameOver();
-          } else if (guessCount === 10) {
-            lastResult.textContent = '!!!Game Over!!!';
-            lowOrHi.textContent = '';
-            setGameOver();
-          } else {
-            lastResult.textContent = 'Wrong!';
-            lastResult.style.backgroundColor = 'red';
-            if (userGuess < randomNumber) {
-              lowOrHi.textContent = 'Last guess was too low!';
-            } else if (userGuess > randomNumber) {
-              lowOrHi.textContent = 'Last guess was too high!';
-            }
-          }
-      
-          guessCount++;
-          guessField.value = '';
-          guessField.focus();
         }
-      
-        guessSubmit.addEventListener('click', checkGuess);
-      
-        function setGameOver() {
-          guessField.disabled = true;
-          guessSubmit.disabled = true;
-          resetButton = document.createElement('button');
-          resetButton.textContent = 'Start new game';
-          document.body.append(resetButton);
-          resetButton.addEventListener('click', resetGame);
-        }
-      
-        function resetGame() {
-          guessCount = 1;
-      
-          const resetParas = document.querySelectorAll('.resultParas p');
-          resetParas.forEach(para => para.textContent = '');
-      
-          resetButton.parentNode.removeChild(resetButton);
-      
-          guessField.disabled = false;
-          guessSubmit.disabled = false;
-          guessField.value = '';
-          guessField.focus();
-      
-          lastResult.style.backgroundColor = 'white';
-      
-          randomNumber = Math.floor(Math.random() * 100) + 1;
-        }
-      </script>
+    
+        guessCount++;
+        guessField.value = '';
+        guessField.focus();
+      }
+    
+      guessSubmit.addEventListener('click', checkGuess);
+    
+      function setGameOver() {
+        guessField.disabled = true;
+        guessSubmit.disabled = true;
+        resetButton = document.createElement('button');
+        resetButton.textContent = 'Start new game';
+        document.body.append(resetButton);
+        resetButton.addEventListener('click', resetGame);
+      }
+    
+      function resetGame() {
+        guessCount = 1;
+    
+        const resetParas = document.querySelectorAll('.resultParas p');
+        resetParas.forEach(para => para.textContent = '');
+    
+        resetButton.parentNode.removeChild(resetButton);
+    
+        guessField.disabled = false;
+        guessSubmit.disabled = false;
+        guessField.value = '';
+        guessField.focus();
+    
+        lastResult.style.backgroundColor = 'white';
+    
+        randomNumber = Math.floor(Math.random() * 100) + 1;
+      }
+    </script>
+  </div>
+    
 
 
 
-<h4 class="clickerh4">Clicker Game</h4>
+<h4>Clicker Game</h4>
 
-<h5 class="yo">
+<h5>
 <div id="counter">0</div>
 <button onclick="increaseCounter()">Click Me!</button>
 <button onclick="resetCounter()">Reset</button>

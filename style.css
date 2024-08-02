@@ -38,35 +38,3 @@ font-size: 15px;
     border:5px solid rgb(136, 29, 29);
  }
  
- .guessingh4{
-     position: absolute;
-     top: 10% ;
-     right: 15%;
-     transform: translate(-10%, -15%);
- }
- .guessingp{
-    position: absolute;
-    top: 15% ;
-    right: 5%;
-    transform: translate(-15%, -5%)
- }
- .clickerh4{
-    position: absolute;
-    top: 20% ;
-    right: 15%;
-    transform: translate(-20%, -15%);
- }
-
- .yo{
-    position: absolute;
-    top: 25% ;
-    right: 13%;
-    transform: translate(-25%, -13%);
- }
- .fungamesh2{
-    position: absolute;
-    top: 5% ;
-    right: 13%;
-    transform: translate(-5%, -13%);
-}
- 
